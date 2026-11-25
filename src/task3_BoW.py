@@ -26,7 +26,20 @@ def bag_of_words(texts: List[str]) -> pd.DataFrame:
         0    0  1   0     1    1
         1    1  0   1     0    1
     """
-    pass
+    if not isinstance(texts, list):
+        raise TypeError(f"Expected list, got {type(texts).__name__}.")
+    if not texts:
+        raise ValueError("Input texts list cannot be empty.")
+    if not all(isinstance(text, str) for text in texts):
+        raise ValueError("All elements in texts must be strings.")
+
+    vectorizer = CountVectorizer()
+    bow_matrix = vectorizer.fit_transform(texts)
+
+    df = pd.DataFrame(
+        bow_matrix.toarray(),
+        columns=vectorizer.get_feature_names_out()
+    )
     return df
 
 
