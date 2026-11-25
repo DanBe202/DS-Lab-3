@@ -24,11 +24,11 @@ def stem_and_lemmatize(tokens: List[str]) -> Dict[str, List[str]]:
          'lemmatized': ['running', 'cat']}
     """
     if not isinstance(tokens, list):
-        raise TypeError(f"Expected list, got {type(tokens).__name__}.")
+        raise TypeError(f"Input tokens must be a list")
     if not tokens:
-        raise ValueError("Input token list cannot be empty.")
+        raise ValueError("Input tokens cannot be empty")
     if not all(isinstance(token, str) for token in tokens):
-        raise ValueError("All elements in tokens must be strings.")
+        raise ValueError("All tokens must be strings")
 
     stemmer = PorterStemmer()
     lemmatizer = WordNetLemmatizer()

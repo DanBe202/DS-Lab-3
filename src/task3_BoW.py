@@ -27,11 +27,11 @@ def bag_of_words(texts: List[str]) -> pd.DataFrame:
         1    1  0   1     0    1
     """
     if not isinstance(texts, list):
-        raise TypeError(f"Expected list, got {type(texts).__name__}.")
+        raise TypeError(f"Input texts must be a list")
     if not texts:
-        raise ValueError("Input texts list cannot be empty.")
+        raise ValueError("Input texts cannot be empty")
     if not all(isinstance(text, str) for text in texts):
-        raise ValueError("All elements in texts must be strings.")
+        raise ValueError("All texts must be strings")
 
     vectorizer = CountVectorizer()
     bow_matrix = vectorizer.fit_transform(texts)

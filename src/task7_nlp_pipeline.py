@@ -136,7 +136,6 @@ def find_similar_documents(
         >>> find_similar_documents(0, sim_matrix, top_n=1)
         [(1, 0.8)]
     """
-   ...
     
     # Get similarity scores for the document (excluding itself)
     ...

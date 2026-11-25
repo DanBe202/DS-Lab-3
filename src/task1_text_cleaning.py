@@ -25,7 +25,7 @@ def clean_and_tokenize(text: str) -> List[str]:
     if text is None:
         raise ValueError("Input text cannot be None.")
     if not isinstance(text, str):
-        raise TypeError(f"Expected str, got {type(text).__name__}.")
+        raise TypeError(f"Input text must be a string")
     if not text.strip():
         raise ValueError("Input text cannot be empty.")
 
